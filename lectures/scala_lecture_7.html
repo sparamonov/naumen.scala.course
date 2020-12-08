@@ -118,6 +118,11 @@
         </div>
         <div class="slides">
             <section>
+                <img src="img/lecture_9/function2.png" />
+            </section>
+        </div>
+        <div class="slides">
+            <section>
                 <b>Функциональное программирование</b> - парадигама программирования, <br>
                 в которой процесс вычислени трактуется,<br>
                 как вычисление функции от входных параметров.
@@ -149,6 +154,13 @@
                 <h1>Чистые функции</h1>
                 <h2>Детерминированность</h2>
                 Функция является детерминированной, если для одного и того же набора входных значений она возвращает одинаковый результат.
+            </section>
+        </div>
+        <div class="slides">
+            <section>
+                <h1>Чистые функции</h1>
+                <h2>Детерминированность</h2>
+                Недетерминированная функция
                 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                     <pre style="margin: 0; line-height: 125%">
                         <span style="color: #008800; font-weight: bold">object</span> <span style="color: #BB0066; font-weight: bold">Math</span> <span style="color: #333333">{</span>
@@ -158,20 +170,24 @@
                             radius <span style="color: #333333">*</span> radius <span style="color: #333333">*</span> pi
                         <span style="color: #333333">}</span>
 
-                        <span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.</span>circleArea<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">)</span>  <span style="color: #888888">// 314</span>
+                        <span class="fragment"><span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.</span>circleArea<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">)</span>  <span style="color: #888888">// 314.0</span></span>
+                        <span class="fragment"><span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.pi <span style="color: #008800; font-weight: bold">=</span> <span style="color: #6600EE; font-weight: bold">3.1415926d</span></span>
+                        <span class="fragment"><span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.</span>circleArea<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">)</span>  <span style="color: #888888">// 314.15926</span></span>
                     </pre>
                 </div>
-                <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-                    <pre style="margin: 0; line-height: 125%">
-                        <span style="color: #008800; font-weight: bold">object</span> <span style="color: #BB0066; font-weight: bold">Math</span> <span style="color: #333333">{</span>
-                          <span style="color: #008800; font-weight: bold">var</span> pi <span style="color: #008800; font-weight: bold">=</span> <span style="color: #6600EE; font-weight: bold">3.14d</span>
-
-                          <span style="color: #008800; font-weight: bold">def</span> circleArea<span style="color: #333333">(</span>radius<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Double</span><span style="color: #333333">, </span>_pi<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Double</span><span style="color: #333333"></span>)</span> <span style="color: #008800; font-weight: bold">=</span> 
-                            radius <span style="color: #333333">*</span> radius <span style="color: #333333">*</span> _pi
-                        <span style="color: #333333">}</span>
-
-                        <span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.</span>circleArea<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">, Math.pi)</span>  <span style="color: #888888">// 314</span>
-                    </pre>
+                <div class="fragment">
+                    Детерминированная функция
+                    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                        <pre style="margin: 0; line-height: 125%">
+                            <span style="color: #008800; font-weight: bold">object</span> <span style="color: #BB0066; font-weight: bold">Math</span> <span style="color: #333333">{</span>
+    
+                              <span style="color: #008800; font-weight: bold">def</span> circleArea<span style="color: #333333">(</span>radius<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Double</span><span style="color: #333333">, </span>pi<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Double</span><span style="color: #333333"></span>)</span> <span style="color: #008800; font-weight: bold">=</span> 
+                                radius <span style="color: #333333">*</span> radius <span style="color: #333333">*</span> pi
+                            <span style="color: #333333">}</span>
+    
+                            <span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.</span>circleArea<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">, <span style="color: #0000DD; font-weight: bold">3.14</span><span style="color: #333333">)</span>  <span style="color: #888888">// 314.00</span>
+                        </pre>
+                    </div>
                 </div>
             </section>
         </div>
@@ -193,8 +209,6 @@
                           <span style="color: #008800; font-weight: bold">def</span> circleArea<span style="color: #333333">(</span>radius<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Double</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">=</span> 
                             radius <span style="color: #333333">*</span> radius <span style="color: #333333">*</span> getPi()
                         <span style="color: #333333">}</span>
-
-                        <span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.</span>circleArea<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">)</span>  <span style="color: #888888">// 314</span>
                     </pre>
                 </div>
             </section>
@@ -213,7 +227,10 @@
                           <span style="color: #333333">}</span>
                     </pre>
                 </div>
-
+            </section>
+        </div>
+        <div class="slides">
+            <section>
                 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                     <pre style="margin: 0; line-height: 125%">
                         <span style="color: #008800; font-weight: bold">def</span> findSumImmutable<span style="color: #333333">(</span>list<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Seq</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">Int</span><span style="color: #333333">],</span> sumOfValues<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Int</span> <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Int</span> <span style="color: #333333">=</span> 
@@ -229,15 +246,13 @@
                 Выражение называется ссылочно прозрачным, если его можно заменить соответствующим значением без изменения поведения программы.
                 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                     <pre style="margin: 0; line-height: 125%">
-                        findSumImmutable<span style="color: #333333">(</span><span style="color: #BB0066; font-weight: bold">Seq</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">))</span> <span style="color: #888888">// 3</span>
-                        findSumImmutable<span style="color: #333333">(</span><span style="color: #BB0066; font-weight: bold">Seq</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">))</span> <span style="color: #888888">// 3</span>
-                        findSumImmutable<span style="color: #333333">(</span><span style="color: #BB0066; font-weight: bold">Seq</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">))</span> <span style="color: #888888">// 3</span>
-                        findSumImmutable<span style="color: #333333">(</span><span style="color: #BB0066; font-weight: bold">Seq</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">))</span> <span style="color: #888888">// 3</span>
-                        <span style="color: #333333">...</span>
+                        <span style="color: #008800; font-weight: bold">val</span> values <span style="color: #008800; font-weight: bold">=</span> <span style="color: #BB0066; font-weight: bold">Seq</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">)</span>
 
-                        findSumImmutable<span style="color: #333333">(</span><span style="color: #BB0066; font-weight: bold">Seq</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">))</span> <span style="color: #333333">~</span> <span style="color: #0000DD; font-weight: bold">3</span>
-                    </pre>
-                </div>
+                        findSumImmutable<span style="color: #333333">(</span>values<span style="color: #333333">)</span>    <span style="color: #888888">// 3</span>
+                        findSumImmutable<span style="color: #333333">(</span><span style="color: #BB0066; font-weight: bold">Seq</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">))</span> <span style="color: #888888">// 3</span>
+                        <span style="color: #0000DD; font-weight: bold">3</span>
+                </pre></div>
+
             </section>
         </div>
         <div class="slides">
@@ -258,7 +273,7 @@
                           <span style="color: #008800; font-weight: bold">def</span> map<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span>, <span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">](</span>f<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> B<span style="color: #333333">)</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=&gt;</span> <span style="color: #BB0066; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=</span> <span style="color: #008800; font-weight: bold">_</span><span style="color: #333333">.</span>map<span style="color: #333333">(</span>f<span style="color: #333333">)</span>
                         <span style="color: #333333">}</span>
     
-                        <span style="color: #008800; font-weight: bold">val</span> sqr<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Int</span> <span style="color: #333333">=&gt;</span> <span style="color: #BB0066; font-weight: bold">Int</span> <span style="color: #008800; font-weight: bold">=</span> <span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.</span>sqr
+                        <span style="color: #008800; font-weight: bold">val</span> sqr<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Int</span> <span style="color: #333333">=&gt;</span> <span style="color: #BB0066; font-weight: bold">Int</span> <span style="color: #008800; font-weight: bold">=</span> <span style="color: #BB0066; font-weight: bold">Math</span><span style="color: #333333">.</span>sqr _
     
                         <span style="color: #008800; font-weight: bold">val</span> sqrList<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">Int</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=&gt;</span> <span style="color: #BB0066; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">Int</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=</span> <span style="color: #BB0066; font-weight: bold">ListFunctor</span><span style="color: #333333">.</span>map<span style="color: #333333">(</span>sqr<span style="color: #333333">)</span>
     
@@ -303,36 +318,24 @@
             <section>
                 <h1>Композиция функций</h1>
                     &forall; f: A &rightarrow; B, g: B &rightarrow; C<br>
-                    &exist; c: A &rightarrow; C = g &compfn; f
+                    &exist; c: A &rightarrow; C = g &compfn; f<br>
+                    Т.е. для <i>f(a): b</i> и <i>g(b): c</i> есть <i>c(a) = g(f(a))</i>
                 <br>
                 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                     <pre style="margin: 0; line-height: 125%">
                         <span style="color: #008800; font-weight: bold">def</span> decode<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Array</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">Byte</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=&gt;</span> <span style="color: #BB0066; font-weight: bold">String</span>
                         <span style="color: #008800; font-weight: bold">def</span> parseString<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">T</span><span style="color: #333333">](</span>parser<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Parser</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">T</span><span style="color: #333333">])</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">String</span> <span style="color: #333333">=&gt;</span> T
                         
-                        <span style="color: #008800; font-weight: bold">def</span> decodeBytes<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">T</span><span style="color: #333333">](</span>parser<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Parse</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">T</span><span style="color: #333333">])</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Array</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">Byte</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=&gt;</span> T <span style="color: #008800; font-weight: bold">=</span> 
-                        decode andThen parseString<span style="color: #333333">(</span>parser<span style="color: #333333">)</span>
+                        <span style="color: #008800; font-weight: bold">def</span> parseBytes<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">T</span><span style="color: #333333">](</span>parser<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Parse</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">T</span><span style="color: #333333">])</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Array</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">Byte</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=&gt;</span> T <span style="color: #008800; font-weight: bold">=</span> 
+                            decode andThen parseString<span style="color: #333333">(</span>parser<span style="color: #333333">)</span> <span style="color: #888888">// ~ bytes => parseString(parser)(decode(bytes))</span>
                 </pre>
             </div>
             </section>
         </div>
         <div class="slides">
             <section>
-                <h1>Функции высших порядков</h1>
-                Функция высшего порядка - функция, которая принимает в качестве параметров(-а) или/и возвращает функцию.
-                <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-                    <pre style="margin: 0; line-height: 125%">
-                        <span style="color: #008800; font-weight: bold">def</span> map<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span>, <span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">](</span>f<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> B<span style="color: #333333">,</span> list<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">])</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">]</span>
-                        
-                        <span style="color: #008800; font-weight: bold">def</span> compose<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span>, <span style="color: #333399; font-weight: bold">B</span>, <span style="color: #333399; font-weight: bold">C</span><span style="color: #333333">](</span>f<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> B<span style="color: #333333">,</span> g<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">B</span> <span style="color: #333333">=&gt;</span> C<span style="color: #333333">)</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> C <span style="color: #008800; font-weight: bold">=</span> <span style="color: #333333">(</span>x<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">=&gt;</span> g<span style="color: #333333">(</span>f<span style="color: #333333">(</span>x<span style="color: #333333">))</span>
-                    </pre>
-                </div>
-            </section>
-        </div>
-        <div class="slides">
-            <section>
                 <h1>Каррирование</h1>
-                Преобразование функции нескольких аргументов в функцию высшего порядка одного аргумента, которая возвращает функцию от следующего параметра.<br>
+                Преобразование функции нескольких аргументов в функцию одного аргумента, которая возвращает функцию от следующего аргумента, которая возвращает функцию от...<br>
                 curr: ((A &times; B) &rightarrow; (C)) &rightarrow; (A &rightarrow; (B &rightarrow; C))
                 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                     <pre style="margin: 0; line-height: 125%">
@@ -381,6 +384,19 @@
         </div>
         <div class="slides">
             <section>
+                <h1>Функции высших порядков</h1>
+                Функция высшего порядка - функция, которая принимает в качестве параметров(-а) или/и возвращает функцию.
+                <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                    <pre style="margin: 0; line-height: 125%">
+                        <span style="color: #008800; font-weight: bold">def</span> map<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span>, <span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">](</span>f<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> B<span style="color: #333333">,</span> list<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">])</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">]</span>
+                        
+                        <span style="color: #008800; font-weight: bold">def</span> compose<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span>, <span style="color: #333399; font-weight: bold">B</span>, <span style="color: #333399; font-weight: bold">C</span><span style="color: #333333">](</span>f<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> B<span style="color: #333333">,</span> g<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">B</span> <span style="color: #333333">=&gt;</span> C<span style="color: #333333">)</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> C <span style="color: #008800; font-weight: bold">=</span> <span style="color: #333333">(</span>x<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">=&gt;</span> g<span style="color: #333333">(</span>f<span style="color: #333333">(</span>x<span style="color: #333333">))</span>
+                    </pre>
+                </div>
+            </section>
+        </div>
+        <div class="slides">
+            <section>
                 <h1>Рекурсивные функции</h1>
                 <img src="img/lecture_9/recursion.jpg" />
             </section>
@@ -413,7 +429,7 @@
         <div class="slides">
             <section>
                 <h1>Хвостовая рекурсия</h1>
-                <b>Хвостовая рекурсия</b> - рекурсия, в которой рекурсивный вызов является последним.
+                <b>Хвостовая рекурсия</b> - рекурсия, в которой рекурсивный вызов является последним.<br>Т.е. результат рекурсивного вызова - результат вычисления функции.
                 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                     <pre style="margin: 0; line-height: 125%">
                         <span style="color: #008800; font-weight: bold">def</span> iterativeMap<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span>, <span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">](</span>f<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> B<span style="color: #333333">)(</span>list<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">])</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=</span> <span style="color: #333333">{</span>
@@ -515,7 +531,7 @@
                     <pre style="margin: 0; line-height: 125%">
                         <span style="color: #008800; font-weight: bold">def</span> foo<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">](</span>a<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">)</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Unit</span> <span style="color: #333333">=</span> a <span style="color: #008800; font-weight: bold">match</span> <span style="color: #333333">{</span>
                           <span style="color: #008800; font-weight: bold">case</span> x<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">B</span> <span style="color: #333333">=&gt;</span> <span style="color: #333333">()</span> <span style="color: #888888">// x is B if a is B</span>
-                          <span style="color: #008800; font-weight: bold">case</span> <span style="color: #008800; font-weight: bold">_:</span> <span style="color: #333399; font-weight: bold">C</span> <span style="color: #333333">=&gt;</span>    <span style="color: #888888">// there are no new names but a is C</span>
+                          <span style="color: #008800; font-weight: bold">case</span> <span style="color: #008800; font-weight: bold">_:</span> <span style="color: #333399; font-weight: bold">C</span> <span style="color: #333333">=&gt;</span>    <span style="color: #888888">// there are no new names and we know that a is C</span>
                         <span style="color: #333333">}</span>
                     </pre>
                 </div>
@@ -555,9 +571,9 @@
                 <h2>Pattern guards</h2>
                 <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
                     <pre style="margin: 0; line-height: 125%">
-                        <span style="color: #008800; font-weight: bold">def</span> foo<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">](</span>a<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Option[A]</span><span style="color: #333333">)</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=</span> a <span style="color: #008800; font-weight: bold">match</span> <span style="color: #333333">{</span>
-                          <span style="color: #008800; font-weight: bold">case</span> some@Some(x) <span style="color: #008800; font-weight: bold">if</span> x &gt; 0 <span style="color: #333333">=&gt;</span> <span style="color: #333333">x</span> <span style="color: #888888">// x is A, some is Some[A]</span>
-                          <span style="color: #008800; font-weight: bold">case</span> _ <span style="color: #333333">=&gt;</span> <span style="color: #333333">A.default
+                        <span style="color: #008800; font-weight: bold">def</span> foo<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">](</span>a<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Option[A]</span><span style="color: #333333">)</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">Int</span> <span style="color: #333333">=</span> a <span style="color: #008800; font-weight: bold">match</span> <span style="color: #333333">{</span>
+                          <span style="color: #008800; font-weight: bold">case</span> Some(x: Int) <span style="color: #008800; font-weight: bold">if</span> x &gt; 0 <span style="color: #333333">=&gt;</span> <span style="color: #333333">x</span> <span style="color: #888888">// x is positive Int</span>
+                          <span style="color: #008800; font-weight: bold">case</span> _ <span style="color: #333333">=&gt;</span> <span style="color: #333333">1
                         <span style="color: #333333">}</span>
                     </pre>
                 </div>
@@ -582,7 +598,7 @@
                         <span style="color: #008800; font-weight: bold">def</span> newTailMap<span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span>, <span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">](</span>f<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">A</span> <span style="color: #333333">=&gt;</span> B<span style="color: #333333">)(</span>list<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">])</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=</span> <span style="color: #333333">{</span>
                           <span style="color: #555555; font-weight: bold">@tailrec</span>
                           <span style="color: #008800; font-weight: bold">def</span> loop<span style="color: #333333">(</span>l<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">A</span><span style="color: #333333">],</span> buffer<span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">])</span><span style="color: #008800; font-weight: bold">:</span> <span style="color: #333399; font-weight: bold">List</span><span style="color: #333333">[</span><span style="color: #333399; font-weight: bold">B</span><span style="color: #333333">]</span> <span style="color: #008800; font-weight: bold">=</span> l <span style="color: #008800; font-weight: bold">match</span> <span style="color: #333333">{</span>
-                            <span style="color: #008800; font-weight: bold">case</span> head <span style="color: #333333">::</span> tail <span style="color: #008800; font-weight: bold">=&gt;</span> loop<span style="color: #333333">(</span>tail<span style="color: #333333">,</span> buffer <span style="color: #333333">:+</span> f<span style="color: #333333">(</span>head<span style="color: #333333">))</span>
+                            <span style="color: #008800; font-weight: bold">case</span> head <span style="color: #333333">::</span> tail <span style="color: #008800; font-weight: bold">=&gt;</span> loop<span style="color: #333333">(</span>tail<span style="color: #333333">,</span> buffer <span style="color: #333333">:+</span> f<span style="color: #333333">(</span>head<span style="color: #333333">))</span> <span style="color: #888888">// ::(head, tail)</span>
                             <span style="color: #008800; font-weight: bold">case</span> <span style="color: #008800; font-weight: bold">_</span>            <span style="color: #008800; font-weight: bold">=&gt;</span> buffer
                           <span style="color: #333333">}</span>
                           loop<span style="color: #333333">(</span>list<span style="color: #333333">,</span> <span style="color: #BB0066; font-weight: bold">List</span><span style="color: #333333">.</span>empty)
@@ -707,8 +723,9 @@
                 <ul>
                     <li>можно (и нужно) отказаться от переменных;</li>
                     <li>можно тестировать по принципу черного ящика;</li>
-                    <li>огромные возможности для распараллеливания;</li>
-                    <li>оптимизация на этапе компиляции;</li>
+                    <li>огромное число гарантий;</li>
+                    <li>отказоустойчивость;</li>
+                    <li>оптимизация на этапе компиляции/разработки;</li>
                     <li>продолжать можно долго...</li>
                 </ul>
             </section>
