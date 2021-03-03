@@ -46,20 +46,207 @@
 
         <div class="slides">
             <section>
-                <h2>I. Выражения (expressions)</h2>
+                <h1>I. Выражения (expressions)</h1>
                 Выражение - это вычислимое утверждение:
                 <div class="code-block">
                     <pre>
                         1 + 1
                     </pre>
                 </div>
-                Результат вычислений можно вывести при помощи <span class="key-word">println</span>:
+                Результат вычислений можно вывести при помощи <span class="keyword">println</span>:
                 <div class="code-block">
                     <pre>
-                        <span class="key-word">println</span>(1) // 1
-                        <span class="key-word">println</span>(1 + 1) // 2
-                        <span class="key-word">println</span>("Hello!") // Hello!
-                        <span class="key-word">println</span>("Hello," + " world!") // Hello, world!
+                        <span class="keyword">println</span>(1) <span class="comment">// 1</span>
+                        <span class="keyword">println</span>(1 + 1) <span class="comment">// 2</span>
+                        <span class="keyword">println</span>("Hello!") <span class="comment">// Hello!</span>
+                        <span class="keyword">println</span>("Hello," + " world!") <span class="comment">// Hello, world!</span>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h1>I. Выражения (expressions)</h1>
+                Объявление значений (values):
+                <div class="code-block">
+                    <pre>
+                        <span class="keyword">val</span> x = 1 + 1
+                        println(x) <span class="comment">// 2</span>
+
+                        x = 3 <span class="comment">// не компилируется</span>
+                        <span class="keyword">val</span> y: Int = 41 - 1
+                    </pre>
+                </div>
+                Объявление переменных (variables):
+                <div class="code-block">
+                    <pre>
+                        <span class="keyword">var</span> x = 1 + 1
+                        x = 3 <span class="comment">// компилируется</span>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h1>II. Функции (functions)</h1>
+                Объявление функции:
+                <div class="code-block">
+                    <pre>
+                        <span class="keyword">val</span> add = (x: Int, y: Int) => x + y
+                        println(add(1, 2)) <span class="comment">// 3</span>
+
+                        <span class="keyword">val</span> getTheAnswer = () => 42
+                        println(getTheAnswer()) <span class="comment">// 42</span>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h1>III. Методы (methods)</h1>
+                Объявление метода:
+                <div class="code-block">
+                    <pre>
+                        <span class="keyword">def</span> add(x: Int, y: Int): Int = x + y
+                        println(add(1, 2)) <span class="comment">// 3</span>
+                    </pre>
+                </div>
+                Метод может принимать множественные списки параметров (каррирование):
+                <div class="code-block">
+                    <pre>
+                        <span class="keyword">def</span> addThenMultiply(x: Int, y: Int)(multiplier: Int): Int = {
+                            val sum = x + y
+                            sum * multiplier
+                        }
+                        println(addThenMultiply(1, 2)(3)) <span class="comment">// 9</span>
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h1>IV. Условное выражение (if expression)</h1>
+                Синтакисис аналогичен Java/C#/C++:
+                <div class="code-block">
+                    <pre>
+                        if (a == b) doSomething()
+
+                        if (trueOrFalse) {
+                            doSomething()
+                        } else if (a != b) {
+                            doSomethingElse()
+                        } else {
+                            doAnotherThing()
+                        }
+                    </pre>
+                </div>
+                Результат можно сохранить:
+                <div class="code-block">
+                    <pre>
+                        val minValue = if (a < b) a else b
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h1>V. Циклы (for loops)</h1>
+                Перебор элементов в коллекции:
+                <div class="code-block">
+                    <pre>
+                        val strings = Seq("A", "B")
+                        val numbers = Seq(1, 2, 3)
+
+                        for (str <- strings) print(s"$str; ") // out: A; B;
+
+                        for (num <- numbers) print(s"$num; ") // out: 1; 2; 3;
+
+                        for { str <- strings
+                              num <- numbers } print(s"$str$num; ") // out: A1; A2; A3; B1; B2; B3;
+                    </pre>
+                </div>
+                Для классов коллекций также доступен foreach:
+                <div class="code-block">
+                    <pre>
+                        val cars = Seq("Mercedes", "BMW", "Cadillac")
+                        cars.foreach(println) // out: Mercedes BMW Cadillac
+
+                        car => println(car)
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h1>V. Циклы (for loops)</h1>
+                Использование генераторов в циклах for:
+                <div class="code-block">
+                    <pre>
+                        for (i <- 1 to 5) print(s"$i; ") // out: 1; 2; 3; 4; 5;
+
+                        for (i <- 1 until 5) print(s"$i; ") // out: 1; 2; 3; 4;
+                    </pre>
+                </div>
+                Использование for для Map:
+                <div class="code-block">
+                    <pre>
+                        val ingredients = Map(
+                            "sugar"  -> 30,
+                            "salt"   -> 5,
+                            "pepper" -> 10
+                        )
+
+                        for ((title, amount) <- ingredients)
+                            println(s"ing $title: $amount g") // out: ing sugar: 30 g ing salt: 5 g ing pepper: 10 g
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h1>V. Циклы (for loops)</h1>
+                Использование "гардов" (guards) в for-выражениях (for comprehensions):
+                <div class="code-block">
+                    <pre>
+                        for { i <- 1 to 5
+                              if (i % 2 == 0)
+                        } print(s"i; ") // out: 2; 4;
+
+                        for { i <- 1 to 5
+                              if (i % 2 == 0)
+                              if (i > 2)
+                        } print(s"$i; ") // out: 4;
+                    </pre>
+                </div>
+                Конструкция for (enumerators) yield e в for-выражениях (for comprehensions):
+                <div class="code-block">
+                    <pre>
+                        val strings = List("A", "B")
+                        val res =
+                            for { i <- 1 to 5 if i % 2 == 0
+                                  str <- strings
+                            } yield s"$str$i; "
+                        res.foreach(print) // out: A1; B1; A2; B2;
+                    </pre>
+                </div>
+            </section>
+            <section>
+                <h1>V. Циклы (while/do-while)</h1>
+                Синтаксис цикла while:
+                <div class="code-block">
+                    <pre>
+                        var i = 0
+                        while (i < 5) {
+                            print(s"$i; ")
+                            i += 1
+                        } // out: 0; 1; 2; 3; 4;
+                    </pre>
+                </div>
+                Синтаксис цикла do-while:
+                <div class="code-block">
+                    <pre>
+                        var j = 2
+                        do {
+                            print(s"$j; ")
+                            j -= 1
+                        } while (j > 0) // out: 2; 1;
+                    </pre>
+                </div>
+                Возвращает тип Unit:
+                <div class="code-block">
+                    <pre>
+                        var i = 0
+                        val res = while (i < 5) {
+                            someFunction(i)
+                            i += 1
+                        }
+                        print(res) // out: ()
                     </pre>
                 </div>
             </section>

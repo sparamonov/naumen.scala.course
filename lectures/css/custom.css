@@ -54,7 +54,7 @@ div.code-block {
     border: solid gray;
     border-width: .1em .1em .1em .8em;
     padding: .2em .6em;
-    margin: .5em .5em 2em;
+    margin: .5em .5em 1em;
 }
 
 div.code-block pre {
@@ -62,7 +62,11 @@ div.code-block pre {
     line-height: 125%;
 }
 
-span.key-word {
+span.keyword {
     color: #008800;
     font-weight: bold;
+}
+
+span.comment {
+    color: #888888;
 }
