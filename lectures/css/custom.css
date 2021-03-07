@@ -70,3 +70,27 @@ span.keyword {
 span.comment {
     color: #888888;
 }
+
+span.number {
+    color: #0000DD;
+    font-weight: bold;
+}
+
+span.string {
+    background-color: #ffe4e1;
+}
+
+span.type {
+    color: #5e00a3;
+    font-weight: bold;
+}
+
+span.class {
+    color: #BB0066;
+    font-weight: bold;
+}
+
+span.import {
+    color: #0e84b5;
+    font-weight: bold;
+}
